@@ -29,8 +29,19 @@ const myLibrary = [
     }
 ];
 
-function Book(){
-
+function Book(author, title, pages, read){
+    this.author = author;
+    this.title = title;
+    this.pages = pages;
+    this.read = read;
+    this.isRead = function(){
+        if (this.read){
+            return "Read";
+        }
+        else {
+            return "Not read";
+        };
+    }
 };
 
 function addBookToLibrary(){
@@ -45,19 +56,17 @@ myLibrary.forEach(book => {
 
     const h3 = document.createElement("h3");
     h3.textContent = `${book.author} - ${book.title}`;
-    div.appendChild(h3);
 
     const p1 = document.createElement("p");
     p1.textContent = `${book.pages} pages`;
-    div.appendChild(p1);
 
     const p2 = document.createElement("p");
     p2.textContent = `${book.isRead()}`;
-    div.appendChild(p2);
 
     const button = document.createElement("button");
     button.textContent = "x";
-    div.appendChild(button);
+
+    div.append(h3, p1, p2, button);
 
     bookshelf.appendChild(div);
 })
