@@ -15,6 +15,21 @@ const myLibrary = [
             };
         }
     },
+    {
+        author: "Ф. М. Достоевский",
+        title: "Идиот",
+        pages: 640,
+        read: true,
+        isRead: function(){
+            if (this.read){
+                return "Read";
+            }
+            else {
+                return "Not read";
+            };
+        }
+    },
+
 ];
 
 // Функция-конструктор, создающая объект книги
