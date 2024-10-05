@@ -57,6 +57,7 @@ main h2 {
     cursor: pointer;
 }
 
+
 .list {
     margin-top: 1.5rem;
     display: grid;
@@ -95,4 +96,20 @@ main h2 {
 .book button:hover {
     opacity: 0.8;
     cursor: pointer;
+}
+
+footer {
+    background-color: var(--background-color);
+    text-align: center;
+    padding: 1rem;
+}
+
+footer a {
+    text-decoration: none;
+    color: var(--dark);
+    font-weight: bold;
+}
+
+footer a:hover {
+    opacity: 0.8;
 }

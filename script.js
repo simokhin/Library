@@ -69,4 +69,12 @@ myLibrary.forEach(book => {
     div.append(h3, p1, p2, button);
 
     bookshelf.appendChild(div);
+});
+
+const addBookDialog = document.getElementById("add-book");
+const addBookButton = document.getElementById("add-book-button");
+
+addBookButton.addEventListener('click', () => {
+    addBookDialog.showModal();
 })
+
