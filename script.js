@@ -1,3 +1,5 @@
+// Array with books
+
 const myLibrary = [
     {
         author: "Ф. М. Достоевский",
@@ -13,21 +15,9 @@ const myLibrary = [
             };
         }
     },
-    {
-        author: "Ф. М. Достоевский",
-        title: "Идиот",
-        pages: 640,
-        read: true,
-        isRead: function(){
-            if (this.read){
-                return "Read";
-            }
-            else {
-                return "Not read";
-            };
-        }
-    }
 ];
+
+// function that make book object 
 
 function Book(author, title, pages, read){
     this.author = author;
@@ -44,9 +34,13 @@ function Book(author, title, pages, read){
     }
 };
 
+// function that add book to Library
+
 function addBookToLibrary(){
 
 };
+
+// function that show books in the page
 
 const bookshelf = document.querySelector(".list");
 
@@ -71,8 +65,11 @@ myLibrary.forEach(book => {
     bookshelf.appendChild(div);
 });
 
+// open and close dialog
+
 const addBookDialog = document.getElementById("add-book");
 const addBookButton = document.getElementById("add-book-button");
+const add = document.getElementById("add");
 const closeButton = document.getElementById("close");
 
 addBookButton.addEventListener('click', () => {
@@ -82,3 +79,23 @@ addBookButton.addEventListener('click', () => {
 closeButton.addEventListener('click', () => {
     addBookDialog.close();
 })
+
+// get value from form
+
+add.addEventListener('click', (event) => {
+    const author = document.getElementById("author");
+    const title = document.getElementById("title");
+    const pages = document.getElementById("pages");
+    const read = document.getAnimations("isRead")
+    let isRead;
+    if (read.value === "read"){
+        isRead = true;
+    }
+    else {
+        isRead = false
+    }
+
+    let book = new Book(author.value, title.value, pages.value, isRead);
+    myLibrary.push(book);
+})
+

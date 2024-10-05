@@ -89,7 +89,7 @@ input:active {
     border: 1px solid var(--accent1);
 }
 
-.radio {
+select {
     margin-top: 1rem;
 }
 
