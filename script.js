@@ -36,8 +36,25 @@ function Book(author, title, pages, read){
 
 // function that add book to Library
 
-function addBookToLibrary(){
+function addBookToLibrary(book){
+    const div = document.createElement("div");
+    div.classList.add("book")
 
+    const h3 = document.createElement("h3");
+    h3.textContent = `${book.author} - ${book.title}`;
+
+    const p1 = document.createElement("p");
+    p1.textContent = `${book.pages} pages`;
+
+    const p2 = document.createElement("p");
+    p2.textContent = `${book.isRead()}`;
+
+    const button = document.createElement("button");
+    button.textContent = "x";
+
+    div.append(h3, p1, p2, button);
+
+    bookshelf.appendChild(div);
 };
 
 // function that show books in the page
@@ -97,5 +114,7 @@ add.addEventListener('click', (event) => {
 
     let book = new Book(author.value, title.value, pages.value, isRead);
     myLibrary.push(book);
+
+    addBookToLibrary(book);
 })
 
