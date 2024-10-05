@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+:root {
+    --background-color: #F5F7F8;
+    --accent1: #F4CE14;
+    --accent2: #45474B;
+    --dark: #45474B;
+}
+
+body {
+    font-family: "Playfair Display", serif;
+    font-optical-sizing: auto;
+    background-color: #FFFFFF;
+}
+
+header {
+    margin: auto;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    background-color: var(--background-color);
+    border-bottom: 5px solid var(--accent1);
+}
+
+header h1 {
+    width: 80%;
+    margin: auto;
+    color: var(--dark);
+}
+
+main {
+    width: 80%;
+    margin: auto;
+    margin-top: 1.5rem;
+}
+
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+main h2 {
+    color: var(--dark);
+}
+
+.main-header button {
+    border: none;
+    border-radius: 5px;
+    padding: 0.5rem clamp(0.5rem, 5vw, 2rem);
+    background-color: var(--accent1);
+    color: var(--dark);
+    font-weight: bold;
+}
+
+.main-header button:hover {
+    opacity: 0.9;
+    cursor: pointer;
+}
+
+.list {
+    margin-top: 1.5rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.book {
+    background-color: var(--background-color);
+    padding: 1.5rem;
+    border-radius: 10px;
+    border-bottom: 5px solid var(--accent1);
+    display: flex;
+    flex-direction: column;
+}
+
+.book h3 {
+    color: var(--dark);
+    margin-bottom: 0.5rem;
+}
+
+.book p {
+    color: var(--accent2);
+}
+
+.book button {
+    margin-top: 1rem;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--accent1);
+    align-self: self-end;
+}
+
+.book button:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}
