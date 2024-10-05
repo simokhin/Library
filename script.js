@@ -1,4 +1,4 @@
-// Array with books
+// Массив, в котором хранятся объекты книг
 
 const myLibrary = [
     {
@@ -17,7 +17,7 @@ const myLibrary = [
     },
 ];
 
-// function that make book object 
+// Функция-конструктор, создающая объект книги
 
 function Book(author, title, pages, read){
     this.author = author;
@@ -34,11 +34,12 @@ function Book(author, title, pages, read){
     }
 };
 
-// function that add book to Library
+// Функция, добавляющая новый объект книги на страницу
 
 function addBookToLibrary(book){
     const div = document.createElement("div");
-    div.classList.add("book")
+    div.classList.add("book");
+    div.setAttribute("id", `${myLibrary.indexOf(book)}`);
 
     const h3 = document.createElement("h3");
     h3.textContent = `${book.author} - ${book.title}`;
@@ -51,19 +52,26 @@ function addBookToLibrary(book){
 
     const button = document.createElement("button");
     button.textContent = "x";
+    button.classList.add("delete");
+    button.setAttribute("id", `${myLibrary.indexOf(book)}`);
 
     div.append(h3, p1, p2, button);
 
     bookshelf.appendChild(div);
+
+    deleteButton = document.querySelectorAll(".delete");
+    bookStored = document.querySelectorAll(".book");
+    updateButtons();
 };
 
-// function that show books in the page
+// Создаёт книжную полку на странице
 
 const bookshelf = document.querySelector(".list");
 
 myLibrary.forEach(book => {
     const div = document.createElement("div");
-    div.classList.add("book")
+    div.classList.add("book");
+    div.setAttribute("id", `${myLibrary.indexOf(book)}`);
 
     const h3 = document.createElement("h3");
     h3.textContent = `${book.author} - ${book.title}`;
@@ -76,13 +84,21 @@ myLibrary.forEach(book => {
 
     const button = document.createElement("button");
     button.textContent = "x";
+    button.classList.add("delete");
+    button.setAttribute("id", `${myLibrary.indexOf(book)}`);
 
     div.append(h3, p1, p2, button);
 
     bookshelf.appendChild(div);
 });
 
-// open and close dialog
+// Выбираю элементы сразу после их создания, чтобы обновились кнопки
+
+let deleteButton = document.querySelectorAll(".delete");
+let bookStored = document.querySelectorAll(".book");
+updateButtons();
+
+// Открывает и закрывает диалог
 
 const addBookDialog = document.getElementById("add-book");
 const addBookButton = document.getElementById("add-book-button");
@@ -97,7 +113,7 @@ closeButton.addEventListener('click', () => {
     addBookDialog.close();
 })
 
-// get value from form
+// Берет данные из формы, создаёт объект книги, добавляет его в массив и добавляет на страницу
 
 add.addEventListener('click', (event) => {
     const author = document.getElementById("author");
@@ -114,7 +130,17 @@ add.addEventListener('click', (event) => {
 
     let book = new Book(author.value, title.value, pages.value, isRead);
     myLibrary.push(book);
-
     addBookToLibrary(book);
 })
+
+// Добавляют кнопке функцию удаления книги
+
+function updateButtons(){
+    deleteButton.forEach(function(button){
+        button.addEventListener("click", () => {
+            let id = button.id;
+            bookStored[id].remove();
+        })
+    })
+}
 
