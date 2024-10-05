@@ -60,7 +60,7 @@ main h2 {
 .list {
     margin-top: 1.5rem;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 15px;
 }
 
@@ -75,7 +75,7 @@ main h2 {
 
 .book h3 {
     color: var(--dark);
-    margin-bottom: 0.5rem;
+    flex-basis: 4rem;
 }
 
 .book p {
@@ -86,8 +86,10 @@ main h2 {
     margin-top: 1rem;
     border: none;
     border-radius: 5px;
-    background-color: var(--accent1);
-    align-self: self-end;
+    background-color: var(--accent2);
+    color: #FFFFFF;
+    max-width: 1.5rem;
+    align-self: flex-end;
 }
 
 .book button:hover {
