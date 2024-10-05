@@ -73,8 +73,12 @@ myLibrary.forEach(book => {
 
 const addBookDialog = document.getElementById("add-book");
 const addBookButton = document.getElementById("add-book-button");
+const closeButton = document.getElementById("close");
 
 addBookButton.addEventListener('click', () => {
     addBookDialog.showModal();
 })
 
+closeButton.addEventListener('click', () => {
+    addBookDialog.close();
+})
