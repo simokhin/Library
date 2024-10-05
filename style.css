@@ -136,7 +136,20 @@ select {
     color: var(--accent2);
 }
 
-.book button {
+.book p {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.book .changeStatus {
+    border: none;
+    border-radius: 5px;
+    background-color: var(--accent1);
+    align-self: flex-end;
+}
+
+.book .delete {
     margin-top: 1rem;
     border: none;
     border-radius: 5px;

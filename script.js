@@ -48,19 +48,27 @@ function addBookToLibrary(book){
     p1.textContent = `${book.pages} pages`;
 
     const p2 = document.createElement("p");
+    p2.setAttribute("class", "ready-or-not");
     p2.textContent = `${book.isRead()}`;
+
+    const button2 = document.createElement("button");
+    button2.textContent = "status";
+    button2.classList.add("changeStatus");
+    button2.setAttribute("id", `${myLibrary.indexOf(book)}`);
+    p2.setAttribute("id", `${myLibrary.indexOf(book)}`);
 
     const button = document.createElement("button");
     button.textContent = "x";
     button.classList.add("delete");
     button.setAttribute("id", `${myLibrary.indexOf(book)}`);
 
-    div.append(h3, p1, p2, button);
+    div.append(h3, p1, p2, button2, button);
 
     bookshelf.appendChild(div);
 
     deleteButton = document.querySelectorAll(".delete");
     bookStored = document.querySelectorAll(".book");
+    changeStatus = document.querySelectorAll(".changeStatus");
     updateButtons();
 };
 
@@ -81,13 +89,20 @@ myLibrary.forEach(book => {
 
     const p2 = document.createElement("p");
     p2.textContent = `${book.isRead()}`;
+    p2.setAttribute("class", "ready-or-not");
+    p2.setAttribute("id", `${myLibrary.indexOf(book)}`);
+
+    const button2 = document.createElement("button");
+    button2.textContent = "status";
+    button2.classList.add("changeStatus");
+    button2.setAttribute("id", `${myLibrary.indexOf(book)}`);
 
     const button = document.createElement("button");
     button.textContent = "x";
     button.classList.add("delete");
     button.setAttribute("id", `${myLibrary.indexOf(book)}`);
 
-    div.append(h3, p1, p2, button);
+    div.append(h3, p1, p2, button2, button);
 
     bookshelf.appendChild(div);
 });
@@ -96,6 +111,7 @@ myLibrary.forEach(book => {
 
 let deleteButton = document.querySelectorAll(".delete");
 let bookStored = document.querySelectorAll(".book");
+let changeStatus = document.querySelectorAll(".changeStatus");
 updateButtons();
 
 // Открывает и закрывает диалог
@@ -140,6 +156,20 @@ function updateButtons(){
         button.addEventListener("click", () => {
             let id = button.id;
             bookStored[id].remove();
+        })
+    })
+    changeStatus.forEach(function(button){
+        button.addEventListener("click", () => {
+            let id = button.id;
+            if (myLibrary[id].read){
+                myLibrary[id].read = false;
+            }
+            else {
+                myLibrary[id].read = true;
+            }
+            let pages2 = document.querySelectorAll(".ready-or-not");
+            console.log(pages2)
+            pages2[id].textContent = `${myLibrary[id].isRead()}`
         })
     })
 }
