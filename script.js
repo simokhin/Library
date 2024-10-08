@@ -34,12 +34,15 @@ const myLibrary = [
 
 // Функция-конструктор, создающая объект книги
 
-function Book(author, title, pages, read){
-    this.author = author;
-    this.title = title;
-    this.pages = pages;
-    this.read = read;
-    this.isRead = function(){
+class Book {
+    constructor(author, title, pages, read){
+        this.author = author;
+        this.title = title;
+        this.pages = pages;
+        this.read = read;
+    }
+
+    isRead = function(){
         if (this.read){
             return "Read";
         }
