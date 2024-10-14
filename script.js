@@ -150,10 +150,16 @@ closeButton.addEventListener('click', () => {
 // Берет данные из формы, создаёт объект книги, добавляет его в массив и добавляет на страницу
 
 add.addEventListener('click', (event) => {
+    const forma = document.getElementById(".forma");
     const author = document.getElementById("author");
     const title = document.getElementById("title");
     const pages = document.getElementById("pages");
     const read = document.getAnimations("isRead")
+
+    if (forma.checkValidity(valueMissing)){
+        return;
+    }
+
     let isRead;
     if (read.value === "read"){
         isRead = true;
